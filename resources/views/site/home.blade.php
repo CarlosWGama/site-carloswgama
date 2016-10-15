@@ -1,4 +1,4 @@
-@extends('templates.site')
+@extends('layouts.site')
 
 	
 @section('header')
