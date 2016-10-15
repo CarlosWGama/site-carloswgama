@@ -20,6 +20,24 @@ abstract class AdminController extends Controller {
     */
     protected $data = [];
 
+    /**
+    * Informa qual o menu está selecionado
+    * @var int
+    */
+    protected $menu = 0;
+    /**
+    * Informa qual o submenu está selecionado
+    * @var int
+    */
+    protected $submenu = 0;
+
+    /**
+    * Libera o script de Alert
+    * @access protected
+    * @var booleana
+    */
+    protected $JS_alert = false;
+    
     public function __construct() {
 
     }
@@ -29,7 +47,7 @@ abstract class AdminController extends Controller {
     * @access protected
     */
     protected function view($page) {
-        $this->getUserDatas();
+        $this->getDefaultData();
         return view($page, $this->data);
     }
 
@@ -37,9 +55,21 @@ abstract class AdminController extends Controller {
     * Busca as informações do usuário logado
     * @access private
     */
-    private function getUserDatas() {
+    private function getDefaultData() {
+        //Usuário
         if (Auth::check()) {
            $this->data['usuarioLogado'] = Auth::user();
         }
+
+        //Javascripts
+        $this->data['JS'] = [
+            'alert' => $this->JS_alert
+        ];
+        
+        //Sidebar
+        $this->data['sidebar'] = [
+            'menu'      => $this->menu,
+            'submenu'   => $this->menu.'_'.$this->submenu
+        ];
     }
 }

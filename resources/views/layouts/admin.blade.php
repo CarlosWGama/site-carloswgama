@@ -10,23 +10,25 @@
 
   <title>Carlos W. Gama</title>
 
-  <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
 
-  <link href="{{url('admin/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url('admin/css/bootstrap.min.css')}}" rel="stylesheet">
 
-  <link href="{{url('admin/fonts/css/font-awesome.min.css')}}" rel="stylesheet">
-  <link href="{{url('admin/css/animate.min.css')}}" rel="stylesheet">
+    <link href="{{url('admin/fonts/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{url('admin/css/animate.min.css')}}" rel="stylesheet">
 
-  <!-- Custom styling plus plugins -->
-  <link href="{{url('admin/css/custom.css')}}" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{{url('admin/css/maps/jquery-jvectormap-2.0.3.css')}}" />
-  <link href="{{url('admin/css/icheck/flat/green.css')}}" rel="stylesheet" />
-  <link href="{{url('admin/css/floatexamples.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Custom styling plus plugins -->
+    <link href="{{url('admin/css/custom.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{url('admin/css/maps/jquery-jvectormap-2.0.3.css')}}" />
+    <link href="{{url('admin/css/icheck/flat/green.css')}}" rel="stylesheet" />
+    <link href="{{url('admin/css/floatexamples.css')}}" rel="stylesheet" type="text/css" />
 
-  <script src="{{url('admin/js/jquery.min.js')}}"></script>
+    <script src="{{url('admin/js/jquery.min.js')}}"></script>
 
-  @stack('scripts')
-
+@if (isset($JS['alert']) && $JS['alert'])
+    <link href="{{url('admin/css/alert/jquery-confirm.css')}}" rel="stylesheet" type="text/css" />
+    <script src="{{url('admin/js/alert/jquery-confirm.js')}}"></script>
+@endif
 </head>
 
 
@@ -53,11 +55,11 @@
                     <div class="menu_section">
                         <ul class="nav side-menu">
                             <!-- DASHBOARD-->
-                            <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-home"></i> Dashboard <span class="fa fa-chevron-down"></span></a></li>
+                            <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-home"></i> Dashboard</a></li>
                             
                             <!-- USUARIOS -->
                             <li>
-                                <a><i class="fa fa-edit"></i> Usuários <span class="fa fa-chevron-down"></span></a>
+                                <a><i class="fa fa-users"></i> Usuários <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: none">
                                     <li><a href="{{route('admin.usuarios.novo')}}">Novo</a></li>
                                     <li><a href="{{route('admin.usuarios.listar')}}">Listar</a></li>
@@ -82,7 +84,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">{{$usuarioLogado->nome}}
+                                {{$usuarioLogado->nome}}
                                 <span class=" fa fa-angle-down"></span>
                             </a>
 
@@ -135,6 +137,7 @@
 
   <script src="{{url('admin/js/custom.js')}}"></script>
 
+  @stack('scripts')
   
   <!-- pace -->
   <script src="{{url('admin/js/pace/pace.min.js')}}"></script>

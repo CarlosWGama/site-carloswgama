@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 /**
 * Model de Usuarios
@@ -10,6 +11,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 * @author Carlos W. Gama
 */
 class Usuario extends Authenticatable {
+
+
+    use SoftDeletes;
+
     /**
     * Tabela usada
     * @access protected
@@ -37,9 +42,21 @@ class Usuario extends Authenticatable {
     ];
 
     /**
+    * Controlador de datas usadas no código
+    */
+    protected $dates = ['deleted_at'];
+
+    /**
     * Informa ao Auth que o password é o campo senha
     */
     public function getAuthPassword() {
        return $this->senha;
+    }
+
+    /**
+    * Criptografa a senha
+    */
+    public function setSenhaAttribute($senha) {   
+        $this->attributes['senha'] = bcrypt($senha);
     }
 }
