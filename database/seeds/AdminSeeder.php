@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder {
         Usuario::firstOrCreate([
             'nome'  => 'Carlos W. Gama', 
             'email' => 'carloswgama@gmail.com',
-            'senha' => bcrypt('123456')
+            'senha' => '123456'
         ]);
     }
 }
