@@ -65,6 +65,19 @@
                                     <li><a href="{{route('admin.usuarios.listar')}}">Listar</a></li>
                                 </ul>
                             </li>
+
+                            <!-- Header -->
+                            <li>
+                                <a><i class="fa fa-facebook"></i> Header <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none">
+                                    <li><a href="{{route('admin.header.social.novo')}}">Nova Rede Social</a></li>
+                                    <li><a href="{{route('admin.header.social.listar')}}">Listar Redes Sociais</a></li>
+                                    <li><a href="{{route('admin.header.slides.novo')}}">Novo Slide</a></li>
+                                    <li><a href="{{route('admin.header.slides.listar')}}">Listar Slides</a></li>
+                                </ul>
+                            </li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -110,7 +123,7 @@
 				<!-- FOOTER -->
 				<footer>
 					<div class="copyright-info">
-						<p class="pull-right">2016 - Holand</a>		
+						<p class="pull-right">{{date('Y')}} - Carlos W. Gama</a>		
 						</p>
 					</div>
 					<div class="clearfix"></div>

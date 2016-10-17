@@ -22,10 +22,7 @@
                 
                     <ul class="nav navbar-nav navbar-right animated flipInX">
                         <li><a href="#about" class="scroll">Sobre</a></li>
-                        <li><a href="#reference" class="scroll">Reference</a></li>
-                        <li><a href="#pricing" class="scroll">Pricing</a></li>
-                        <li><a href="#contact" class="scroll">Contact</a></li>
-                        <li><a href="blog.html" class="scroll blog_menu_link">Blog</a></li>
+                        <li><a href="#contact" class="scroll">Contato</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
@@ -35,24 +32,29 @@
             <img src="{{URL::to('site/image/CWG.png')}}" class="img-responsive scrollpoint sp-effect3" alt="" />	
             <div class="social-wrapper">
                 <ul class="brands brands-inline hidden-xs scrollpoint sp-effect1">
-                    <li><a href="#"><i class="fa fa-facebook  hi-icon-effect-8"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <!-- Redes Sociais do Lado Esquerdo -->
+                    @foreach($redes_sociais as $rede_social)
+                        @if (!$rede_social->lado)
+                            <li><a href="{{$rede_social->link}}"><i class="fa {{$rede_social->class_icon}}  hi-icon-effect-8"></i></a></li>
+                        @endif
+                    @endforeach
                 </ul>   
                 <h2 class="scrollpoint sp-effect3">Carlos W. Gama</h2>
                 <ul class="brands brands-inline hidden-xs scrollpoint sp-effect2">
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    @foreach($redes_sociais as $rede_social)
+                        @if ($rede_social->lado)
+                            <li><a href="{{$rede_social->link}}"><i class="fa {{$rede_social->class_icon}}  hi-icon-effect-8"></i></a></li>
+                        @endif
+                    @endforeach
                 </ul>       
             </div>
             <!-- Slideshow start -->                          
             <div id="slideshow" class="carousel slide vertical scrollpoint sp-effect3" data-ride="carousel">
                 <div class="carousel-inner">
+                    @foreach($slides as $slide)
                     <!-- Slideshow item 1 active --> 
-                    <div class="item active"><h3>I <i class="fa fa-heart icon-first"></i> webdesign</h3></div>
-                    <!-- Slideshow item 2 -->     
-                    <div class="item"><h3>Creative coder <i class="fa fa-code icon"></i></h3></div>
-                    <!-- Slideshow item 3 -->   
-                    <div class="item"><h3><i class="fa fa-trophy"></i> Awesome designer</h3></div>
+                    <div class="item  @if ($loop->first) active @endif"><h3>I <i class="fa {{$slide->class_icon}}"></i> {{$slide->descricao}}</h3></div>
+                    @endforeach
                 </div>
             </div>
             <!-- Slideshow end -->   

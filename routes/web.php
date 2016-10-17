@@ -33,4 +33,28 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::put('atualizar/{id}', 'Admin\UsuariosController@atualizar')->name('admin.usuarios.atualizar');
         Route::delete('excluir/{id}', 'Admin\UsuariosController@excluir')->name('admin.usuarios.excluir');
     });
+
+
+    //Header
+    Route::group(['prefix' => 'header'], function() {
+        //Rede Social
+        Route::group(['prefix' => 'redes-sociais'], function() {
+            Route::get('novo', 'Admin\SocialController@novo')->name('admin.header.social.novo');
+            Route::post('cadastrar', 'Admin\SocialController@cadastrar')->name('admin.header.social.cadastrar');
+            Route::get('listar', 'Admin\SocialController@listar')->name('admin.header.social.listar');
+            Route::get('editar/{id}', 'Admin\SocialController@editar')->name('admin.header.social.editar');
+            Route::put('atualizar/{id}', 'Admin\SocialController@atualizar')->name('admin.header.social.atualizar');
+            Route::delete('excluir/{id}', 'Admin\SocialController@excluir')->name('admin.header.social.excluir');
+        });
+
+        //Slide Header
+        Route::group(['prefix' => 'slide'], function() {
+            Route::get('novo', 'Admin\SlideController@novo')->name('admin.header.slides.novo');
+            Route::post('cadastrar', 'Admin\SlideController@cadastrar')->name('admin.header.slides.cadastrar');
+            Route::get('listar', 'Admin\SlideController@listar')->name('admin.header.slides.listar');
+            Route::get('editar/{id}', 'Admin\SlideController@editar')->name('admin.header.slides.editar');
+            Route::put('atualizar/{id}', 'Admin\SlideController@atualizar')->name('admin.header.slides.atualizar');
+            Route::delete('excluir/{id}', 'Admin\SlideController@excluir')->name('admin.header.slides.excluir');
+        });
+    });
 });

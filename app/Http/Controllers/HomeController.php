@@ -6,9 +6,16 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Models\Social;
+use App\Models\Slide;
+
 class HomeController extends Controller {
 
 	public function index() {
-    	return view('site.home');
+		$dados = [
+			'redes_sociais' => Social::all(),
+			'slides'		=> Slide::all()
+		];
+    	return view('site.home', $dados);
     }
 }
