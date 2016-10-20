@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
 
     <link href="{{url('admin/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url('admin/css/cwg.css')}}" rel="stylesheet">
 
     <link href="{{url('admin/fonts/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{url('admin/css/animate.min.css')}}" rel="stylesheet">
@@ -42,7 +43,10 @@
                 <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="{{route('admin.dashboard')}}" class="site_title"><i class="fa fa-paw"></i> <span>CWG</span></a>
+                    <a href="{{route('admin.dashboard')}}" class="site_title">
+                        <img class="icon-cwg-sidebar" src="{{url('site/image/CWG.png')}}"/> 
+                        <span>CWG</span>
+                    </a>
                 </div>
           
                 <div class="clearfix"></div>
