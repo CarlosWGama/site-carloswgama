@@ -77,6 +77,16 @@
                                 </ul>
                             </li>
 
+                            <!-- Biográfia -->
+                            <li>
+                                <a><i class="fa fa-user"></i> Biográfia <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none">
+                                    <li><a href="{{route('admin.biografia.editar')}}">Editar Biográfia</a></li>
+                                    <li><a href="{{route('admin.biografia.anos.novo')}}">Novo - Ano</a></li>
+                                    <li><a href="{{route('admin.biografia.anos.listar')}}">Listar - Anos</a></li>
+                                </ul>
+                            </li>
+
 
                         </ul>
                     </div>

@@ -57,4 +57,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
             Route::delete('excluir/{id}', 'Admin\SlideController@excluir')->name('admin.header.slides.excluir');
         });
     });
+
+    //Biografia
+    Route::group(['prefix' => 'biografia'], function() {
+        Route::get('editar', 'Admin\BiografiaController@editar')->name('admin.biografia.editar');
+        Route::put('atualizar', 'Admin\BiografiaController@atualizar')->name('admin.biografia.atualizar');
+    
+        //Anos
+        Route::group(['prefix' => 'anos'], function() {
+            Route::get('novo', 'Admin\AnosController@novo')->name('admin.biografia.anos.novo');
+            Route::post('cadastrar', 'Admin\AnosController@cadastrar')->name('admin.biografia.anos.cadastrar');
+            Route::get('listar', 'Admin\AnosController@listar')->name('admin.biografia.anos.listar');
+            Route::get('editar/{id}', 'Admin\AnosController@editar')->name('admin.biografia.anos.editar');
+            Route::put('atualizar/{id}', 'Admin\AnosController@atualizar')->name('admin.biografia.anos.atualizar');
+            Route::delete('excluir/{id}', 'Admin\AnosController@excluir')->name('admin.biografia.anos.excluir');
+        });
+
+
+    });
 });

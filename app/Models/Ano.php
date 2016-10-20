@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 * Classe para cuidar dos dados dos Slide
 * @package Models
 */
-class Slide extends Model {
+class Ano extends Model {
     
     use SoftDeletes;
 
+    
     /**
     * Campos que podem ser preenchidos no create/update
     * @access protected

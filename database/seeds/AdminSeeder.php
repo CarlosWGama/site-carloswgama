@@ -15,12 +15,13 @@ class AdminSeeder extends Seeder {
      *
      * @return void
      */
-    public function run()
-    {
-        Usuario::firstOrCreate([
-            'nome'  => 'Carlos W. Gama', 
-            'email' => 'carloswgama@gmail.com',
-            'senha' => '123456'
-        ]);
+    public function run() {
+
+        if (Usuario::where(['email' => 'carloswgama@gmail.com'])->count() == 0)
+            Usuario::create([
+                'nome'  => 'Carlos W. Gama', 
+                'email' => 'carloswgama@gmail.com',
+                'senha' => '123456'
+            ]);
     }
 }

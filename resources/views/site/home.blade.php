@@ -75,54 +75,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-2 hidden-xs scrollpoint sp-effect1"><!-- Profile image --> 
-                	<img src="image/jonathan.png" class="image-bordered img-responsive" alt="" />                
+                	<img src="{{url('storage/'.$biografia->avatar)}}" class="image-bordered img-responsive" alt="" />                
                 </div><!-- Profile end --> 
                 
                 <div class="col-md-7 col-sm-6 scrollpoint sp-effect1"><!-- Profile description --> 
-                	<h3>Carlos W. Gama</h3>
-                  	<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>      
+                	<h3>{{$biografia->titulo}}</h3>
+                  	<p>{{$biografia->descricao}}</p>      
                     
                </div><!-- Profile description end--> 
                 
               <div class="col-md-3 col-sm-4 scrollpoint sp-effect2"><!--Timeline-->
                  
                   <div class="timeline">
-                      <!-- BLOG POST 1 - START -->
-                      <div class="event">
-                          <div class="event-info">
-                            <div class="date">1999</div>
-                          </div>
-                      	  <span>Graduated harvard</span>
-                      </div> <!-- BLOG POST 1 - END -->
-                      
-                      <div class="event">
-                          <div class="event-info">
-                             <div class="date">2000</div>
-                          </div>
-                      	  <span>Internship Google</span>
-                      </div> <!-- BLOG POST 1 - END -->
-                      
-                      <div class="event">
-                          <div class="event-info">
-                             <div class="date">2001</div>
-                          </div>
-                      	  <span>Full-time Job Google</span>
-                      </div> <!-- BLOG POST 1 - END -->
-                      
-                      <div class="event">
-                          <div class="event-info">
-                             <div class="date">2009</div>
-                          </div>
-                      	  <span>Publish own book</span>
-                      </div> <!-- BLOG POST 1 - END -->
-                      
-                      <div class="event">
-                          <div class="event-info">
-                             <div class="date">2012</div>
-                          </div>
-                      	  <span>Start freelancing</span>
-                      </div> <!-- BLOG POST 1 - END -->
-                      
+                    @if(count($biografia->anos) > 0)
+                        @foreach($biografia->anos as $ano)
+                        <!-- ANO{{$ano->ano}} -->
+                        <div class="event">
+                            <div class="event-info">
+                                <div class="date">{{$ano->ano}}</div>
+                            </div>
+                      	    <span>{{$ano->descricao}}</span>
+                        </div> <!--ANO{{$ano->ano}}[FIM] -->
+                        @endforeach
+                    @endif
                   </div><!--timeline-->
               </div><!--col 3 end-->
                
