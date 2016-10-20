@@ -114,18 +114,13 @@
         <div id="skills">
             <div class="container">   
                 <div class="row"><!-- Toogle my skills start --> 
-                    <div class="col-md-3">
-                        <div class="chart" data-percent="73">73% CSS</div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="chart" data-percent="89">89% Html</div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="chart" data-percent="83">83% Code</div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="chart" data-percent="62">62% Design</div>
-                    </div>
+                    @if (count($biografia->habilidades) > 0)
+                        @foreach($biografia->habilidades as $habilidade)
+                        <div class="col-md-{{intval(12/count($biografia->habilidades))}}">
+                            <div class="chart" data-percent="{{$habilidade->porcentagem}}">{{$habilidade->porcentagem}}% {{$habilidade->habilidade}}</div>
+                        </div>
+                        @endforeach
+                    @endif
                 </div><!-- Toogle my skills end--> 
                 
             </div><!-- Container end-->

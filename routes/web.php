@@ -73,6 +73,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
             Route::delete('excluir/{id}', 'Admin\AnosController@excluir')->name('admin.biografia.anos.excluir');
         });
 
+        //Habilidades
+        Route::group(['prefix' => 'habilidades'], function() {
+            Route::get('nova', 'Admin\HabilidadesController@nova')->name('admin.biografia.habilidades.nova');
+            Route::post('cadastrar', 'Admin\HabilidadesController@cadastrar')->name('admin.biografia.habilidades.cadastrar');
+            Route::get('listar', 'Admin\HabilidadesController@listar')->name('admin.biografia.habilidades.listar');
+            Route::get('editar/{id}', 'Admin\HabilidadesController@editar')->name('admin.biografia.habilidades.editar');
+            Route::put('atualizar/{id}', 'Admin\HabilidadesController@atualizar')->name('admin.biografia.habilidades.atualizar');
+            Route::delete('excluir/{id}', 'Admin\HabilidadesController@excluir')->name('admin.biografia.habilidades.excluir');
+        });
+
 
     });
 });

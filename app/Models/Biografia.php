@@ -27,4 +27,12 @@ class Biografia extends Model {
     public function anos() {
         return $this->hasMany(\App\Models\Ano::class)->orderBy('ano');
     }
+
+    /**
+    * Retorna todos as habilidades vinculadas a biografia
+    * @return array[Habilidade]
+    */
+    public function habilidades() {
+        return $this->hasMany(\App\Models\Habilidade::class);
+    }
 }

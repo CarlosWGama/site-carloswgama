@@ -84,6 +84,8 @@
                                     <li><a href="{{route('admin.biografia.editar')}}">Editar Biográfia</a></li>
                                     <li><a href="{{route('admin.biografia.anos.novo')}}">Novo - Ano</a></li>
                                     <li><a href="{{route('admin.biografia.anos.listar')}}">Listar - Anos</a></li>
+                                    <li><a href="{{route('admin.biografia.habilidades.nova')}}">Nova - Habilidade</a></li>
+                                    <li><a href="{{route('admin.biografia.habilidades.listar')}}">Listar - Habilidades</a></li>
                                 </ul>
                             </li>
 
