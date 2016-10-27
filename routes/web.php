@@ -82,7 +82,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
             Route::put('atualizar/{id}', 'Admin\HabilidadesController@atualizar')->name('admin.biografia.habilidades.atualizar');
             Route::delete('excluir/{id}', 'Admin\HabilidadesController@excluir')->name('admin.biografia.habilidades.excluir');
         });
-
-
     });
+
+    //Portfólio
+    Route::group(['prefix' => 'portfolios'], function() {
+        Route::get('novo', 'Admin\PortfoliosController@novo')->name('admin.portfolios.novo');
+        Route::post('cadastrar', 'Admin\PortfoliosController@cadastrar')->name('admin.portfolios.cadastrar');
+        Route::get('listar', 'Admin\PortfoliosController@listar')->name('admin.portfolios.listar');
+        Route::get('editar/{id}', 'Admin\PortfoliosController@editar')->name('admin.portfolios.editar');
+        Route::put('atualizar/{id}', 'Admin\PortfoliosController@atualizar')->name('admin.portfolios.atualizar');
+        Route::delete('excluir/{id}', 'Admin\PortfoliosController@excluir')->name('admin.portfolios.excluir');
+    });
+
 });

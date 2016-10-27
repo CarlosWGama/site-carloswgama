@@ -93,6 +93,15 @@
                                 </ul>
                             </li>
 
+                            <!-- Portfólio -->
+                            <li>
+                                <a><i class="fa fa-user"></i> Portfólio <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none">
+                                    <li><a href="{{route('admin.portfolios.novo')}}">Novo</a></li>
+                                    <li><a href="{{route('admin.portfolios.listar')}}">Listar</a></li>
+                                </ul>
+                            </li>
+
 
                         </ul>
                     </div>

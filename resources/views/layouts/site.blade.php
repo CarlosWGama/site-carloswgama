@@ -35,7 +35,7 @@
     <link href="{{URL::to('/site/css/creative-brands.css')}}" rel="stylesheet" type="text/css">
     <link href="{{URL::to('/site/css/vertical-carousel.css')}}" rel="stylesheet" type="text/css">
     <link href="{{URL::to('/site/css/custom.css')}}" rel="stylesheet" type="text/css">
-
+    <link href="{{URL::to('/site/css/cwg.css')}}" rel="stylesheet" type="text/css">
 
     <!-- ==========================
     	Fonts 
@@ -59,7 +59,7 @@
 <body id="page-top">
 	@yield('header')
 	@yield('sobre')
-	@yield('servicos')
+	@yield('portfolio')
 	@yield('numeros')
 	@yield('case')
 	@yield('comentario')

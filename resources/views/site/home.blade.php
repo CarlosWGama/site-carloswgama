@@ -132,7 +132,7 @@
     =========================== --> 
 @stop
 
-@section('servicos')
+@section('portfolio')
      <!-- ==========================
     	SERVICER - START
     =========================== -->   
@@ -141,34 +141,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="scrollpoint sp-effect3">O que eu faço?</h2>
-                    <p class="scrollpoint sp-effect3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in turpis quam. Nulla quis eleifend lectus.</p> 
+                    <p class="scrollpoint sp-effect3">Conteúdos que costumo trabalhar</p> 
                 </div>
                 
-                <div class="col-md-3 service scrollpoint sp-effect1">
-                <img src="{{URL::to('site/image/ico5.png')}}" alt="">
-                <h3>SEO first</h3>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-                </div>
-                
-                
-                <div class="col-md-3 service scrollpoint sp-effect1">
-                <img src="{{URL::to('site/image/ico4.png')}}" alt="">
-                <h3>Firstclass design</h3>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-                </div>
-                
-                
-                <div class="col-md-3 service scrollpoint sp-effect2">
-                <img src="{{URL::to('site/image/ico1.png')}}" alt="">
-                <h3>Fully responsive</h3>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-                </div>
-                
-                <div class="col-md-3 service scrollpoint sp-effect2">
-                <img src="{{URL::to('site/image/ico3.png')}}" alt="">
-                <h3>Browser friendly</h3>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-                </div>
+
+                @unless(empty($portfolios))    
+                    @foreach($portfolios as $portfolio)
+                        <div class="col-md-3 service scrollpoint sp-effect1">
+                            <img src="{{URL::to('storage/portfolios/' . $portfolio->imagem)}}" class="img-portfolio">
+                            <h3>{{$portfolio->titulo}}</h3>
+                            <p>{{$portfolio->descricao}}</p>
+                        </div>
+                    @endforeach
+                @endunless
                 
             </div>
         </div>
