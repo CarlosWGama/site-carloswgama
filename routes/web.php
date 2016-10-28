@@ -13,6 +13,9 @@
 
 //Site
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/servico/{id}', 'HomeController@servico')->name('servico');
+Route::post('/email', 'HomeController@email')->name('email');
+
 
 //Login
 Route::get('login','LoginController@index')->name('login');
@@ -92,6 +95,27 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::get('editar/{id}', 'Admin\PortfoliosController@editar')->name('admin.portfolios.editar');
         Route::put('atualizar/{id}', 'Admin\PortfoliosController@atualizar')->name('admin.portfolios.atualizar');
         Route::delete('excluir/{id}', 'Admin\PortfoliosController@excluir')->name('admin.portfolios.excluir');
+    });
+
+    //Serviço
+    Route::group(['prefix' => 'servicos'], function() {
+        Route::get('novo', 'Admin\ServicosController@novo')->name('admin.servicos.novo');
+        Route::post('cadastrar', 'Admin\ServicosController@cadastrar')->name('admin.servicos.cadastrar');
+        Route::get('listar', 'Admin\ServicosController@listar')->name('admin.servicos.listar');
+        Route::get('editar/{id}', 'Admin\ServicosController@editar')->name('admin.servicos.editar');
+        Route::put('atualizar/{id}', 'Admin\ServicosController@atualizar')->name('admin.servicos.atualizar');
+        Route::delete('excluir/{id}', 'Admin\ServicosController@excluir')->name('admin.servicos.excluir');
+    });
+
+    
+    //Serviço
+    Route::group(['prefix' => 'testemunhos'], function() {
+        Route::get('novo', 'Admin\TestemunhosController@novo')->name('admin.testemunhos.novo');
+        Route::post('cadastrar', 'Admin\TestemunhosController@cadastrar')->name('admin.testemunhos.cadastrar');
+        Route::get('listar', 'Admin\TestemunhosController@listar')->name('admin.testemunhos.listar');
+        Route::get('editar/{id}', 'Admin\TestemunhosController@editar')->name('admin.testemunhos.editar');
+        Route::put('atualizar/{id}', 'Admin\TestemunhosController@atualizar')->name('admin.testemunhos.atualizar');
+        Route::delete('excluir/{id}', 'Admin\TestemunhosController@excluir')->name('admin.testemunhos.excluir');
     });
 
 });

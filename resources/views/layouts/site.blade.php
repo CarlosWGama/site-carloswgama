@@ -60,14 +60,10 @@
 	@yield('header')
 	@yield('sobre')
 	@yield('portfolio')
-	@yield('numeros')
-	@yield('case')
-	@yield('comentario')
 	@yield('trabalhos_anteriores')
-	@yield('blog')
-	@yield('precos')
 	@yield('testemunhos')
 	@yield('contatos')
+    @yield('conteudo_principal')
 	@yield('footer')
     
     <!-- ==========================
@@ -83,47 +79,7 @@
     <script src="{{URL::to('/site/js/jquery.countTo.js')}}"></script>
     <script src="{{URL::to('/site/js/jqBootstrapValidation.js')}}"></script>
     <script src="{{URL::to('/site/js/custom.js')}}"></script>
-    <script>
-    $(function () { 
-		$("input,textarea").jqBootstrapValidation({
-        	preventSubmit: true,
-			
-			submitSuccess: function($form, event) {
-				event.preventDefault(); // prevent default submit behaviour
-				// get values from FORM
-				var firstname = $("input#firstname").val();
-				var lastname = $("input#lastname").val();
-				var email = $("input#email").val();
-				var message = $("textarea#message").val();
-	
-				$.ajax({
-					url: "send.php",
-					type: "POST",
-					data: {
-						firstname: firstname,
-						lastname: lastname,
-						email: email,
-						message: message
-					},
-					cache: false,
-					success: function() {
-						// Success message
-						$('.contact-alert').html("<div class='alert alert-success'>");
-						$('.contact-alert > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'><i class='fa fa-times'></i></button><strong>Your message has been sent.</strong></div>");
-						//clear all fields
-						$('#contactForm').trigger("reset");
-					},
-					error: function() {
-						// Fail message
-						$('.contact-alert').html("<div class='alert alert-danger'>");
-						$('.contact-alert > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'><i class='fa fa-times'></i></button><strong>Sorry, it seems that my mail server is not responding. Please try again later!</strong></div>");
-						//clear all fields
-						$('#contactForm').trigger("reset");
-					},
-				})
-			}
-		});
-	});
-    </script>
+
+    @stack('scripts')
 </body>
 </html>

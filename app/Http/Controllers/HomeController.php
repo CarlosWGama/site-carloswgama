@@ -10,6 +10,11 @@ use App\Models\Social;
 use App\Models\Slide;
 use App\Models\Biografia;
 use App\Models\Portfolio;
+use App\Models\Servico;
+use App\Models\Testemunho;
+
+use App\Mail\ContatoMail;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller {
 
@@ -18,8 +23,31 @@ class HomeController extends Controller {
 			'redes_sociais' => Social::all(),
 			'slides'		=> Slide::all(),
 			'biografia'		=> Biografia::first(),
-			'portfolios'	=> Portfolio::all()
+			'portfolios'	=> Portfolio::all(),
+			'servicos'		=> Servico::all(),
+			'testemunhos'	=> Testemunho::all()
 		];
     	return view('site.home', $dados);
+    }
+
+    public function servico($id) {
+
+    	$dados = [
+			'servico' 		=> Servico::findOrFail($id),
+			'redes_sociais' => Social::all(),
+		];
+    	
+    	return view('site.servico', $dados);
+    }
+
+    public function email(Request $request) {
+    	Mail::to('carloswgama@gmail.com')->queue(new ContatoMail(
+    		$request->nome, 
+    		$request->assunto, 
+    		$request->email, 
+    		$request->mensagem
+    	));
+
+    	return response()->json(['success' => true]);
     }
 }

@@ -133,8 +133,8 @@
 @stop
 
 @section('portfolio')
-     <!-- ==========================
-    	SERVICER - START
+    <!-- ==========================
+    	TESTEMUNHO - START
     =========================== -->   
     <section id="services" class="content-second">
         <div class="container">
@@ -159,7 +159,7 @@
         </div>
     </section>
     <!-- ==========================
-    	SERVICES - END 
+    	TESTEMUNHO - END 
     =========================== -->
 @stop
 
@@ -203,7 +203,7 @@
 @stop
 
 @section('case')
-     <!-- ==========================
+    <!-- ==========================
     	SHOWCASE - START
     =========================== -->   
     <section id="showcase" class="content-second">
@@ -309,73 +309,26 @@
 
 @section('trabalhos_anteriores')
     <!-- ==========================
-    	REFERENCE - START
+    	SERVICOS - START
     =========================== -->
     <section id="reference" class="content-second">
-        <h2 class="scrollpoint sp-effect3">Trabalhos</h2>
-        <p class="scrollpoint sp-effect3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in turpis quam. Nulla quis eleifend lectus.</p> 
+        <h2 class="scrollpoint sp-effect3">Serviços</h2>
+        <p class="scrollpoint sp-effect3">Lista com alguns serviços realizados</p> 
    		<ul class="grid cs-style-4">
+            @foreach($servicos as $servico)
 				<li>
 					<figure class="scrollpoint sp-effect1">
-						<div><img src="{{URL::to('site/image/ref1.png')}}" alt="img04"></div>
+						<div class="servicos-logo">
+                            <img src="{{URL::to('storage/servicos/' . $servico->imagem)}}" alt="{{$servico->cliente}}">
+                        </div>
 						<figcaption>
-							<h3>Lorem ipsum</h3>
-							<a href="portfolio.html">Show me</a>
+							<h3>{{$servico->cliente}}</h3>
+							<a href="{{ route('servico', ['id' => $servico->id]) }}">Ver</a>
 						</figcaption>
 					</figure>
 				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect3">
-						<div><img src="{{URL::to('site/image/ref2.png')}}" alt="img04"></div>
-						<figcaption>
-							<h3>Lorem ipsum</h3>
-							<a href="portfolio.html">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect2">
-						<div><img src="{{URL::to('site/image/ref3.png')}}" alt="img04"></div>
-						<figcaption>
-							<h3>Lorem ipsum</h3>
-							<a href="portfolio.html">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect1">
-						<div><img src="{{URL::to('site/image/ref4.png')}}" alt="img04"></div>
-						<figcaption>
-							<h3>Lorem ipsum</h3>
-							<a href="portfolio.html">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect3">
-						<div><img src="{{URL::to('site/image/ref5.png')}}" alt="img04"></div>
-						<figcaption>
-							<h3>Lorem ipsum</h3>
-							<a href="portfolio.html">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-                
-                <li>
-					<figure class="scrollpoint sp-effect2">
-						<div><img src="{{URL::to('site/image/ref6.png')}}" alt="img04"></div>
-						<figcaption>
-							<h3>Lorem ipsum</h3>
-							<a href="portfolio.html">Show me</a>
-						</figcaption>
-					</figure>
-				</li>
-				
-			</ul>
+            @endforeach
+		</ul>
     
 	</section>
     <!-- ==========================
@@ -557,36 +510,30 @@
     =========================== -->   
     <section id="testimonials" class="content-first">
         <div class="container">
-        	<h2 class="scrollpoint sp-effect3 text-center">Testimonials</h2>
-        	<p class="scrollpoint sp-effect3 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in turpis quam. Nulla quis eleifend lectus.</p> 
+        	<h2 class="scrollpoint sp-effect3 text-center">Testemunhos</h2>
+        	<p class="scrollpoint sp-effect3 text-center">O que algumas pessoas falam</p> 
             <div class="row">
             	
+                @foreach($testemunhos as $testemunho)
                 <!-- TESTIMONIAL 1 - START -->
                 <div class="col-sm-6 scrollpoint sp-effect1">
                     <div class="media">
-                        <a class="pull-left" href="#"><img class="media-object img-circle" src="{{URL::to('site/image/tom.png')}}" alt=""></a>
+                        
+                        @unless(empty($testemunho->avatar))
+                        <a class="pull-left" href="#">
+                            <img class="media-object img-circle" src="{{url('storage/testemunhos/' . $testemunho->avatar)}}" alt="">
+                        </a>
+                        @endunless
+
                         <div class="media-body">
-                            <h4 class="media-heading">John Doe</h4>
-                            <span>Webdesigner</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed volutpat est. Donec lobortis interdum volutpat. Maecenas bibendum dui quis pharetra tincidunt. Praesent posuere eu velit at scelerisque.</p>
+                            <h4 class="media-heading">{{ $testemunho->nome }}</h4>
+                            <span>{{ $testemunho->cargo }}</span>
+                            <p>{{ $testemunho->comentario }}</p>
                         </div>
                     </div>
                 </div>
                 <!-- TESTIMONIAL 1 - END -->
-                
-                <!-- TESTIMONIAL 2 - START -->
-                <div class="col-sm-6 scrollpoint sp-effect2">
-                    <div class="media">
-                        <a class="pull-left" href="#"><img class="media-object img-circle" src="{{URL::to('site/image/suzanne.png')}}" alt=""></a>
-                        <div class="media-body">
-                            <h4 class="media-heading">John Doe</h4>
-                            <span>Webdesigner</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed volutpat est. Donec lobortis interdum volutpat. Maecenas bibendum dui quis pharetra tincidunt. Praesent posuere eu velit at scelerisque.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- TESTIMONIAL 2 - END -->
-                
+                @endforeach
             </div>
             
         </div>
@@ -602,68 +549,66 @@
     =========================== -->   
     <section id="contact" class="content-first">
         <div class="container">
-        	<h2 class="scrollpoint sp-effect3">Contact me</h2>
-            <div class="contact-alert">
-            </div>
+        	<h2 class="scrollpoint sp-effect3">Entre em contato</h2>
             <div class="row">
             <!-- PRICING TABLE FIRST - start --> 
                 <div class="col-sm-12">
-                	<img src="{{URL::to('site/image/macbook.png')}}" class="img-responsive hidden-xs" alt="">
+                	<img src="{{url('site/image/macbook.png')}}" class="img-responsive hidden-xs" alt="">
                     
                     <div class="macbook-inner black">
                     	<div class="row scrollpoint sp-effect4">
                         	<div class="col-sm-8">
-                            	<h3 class="hidden-xs">Leave a message</h3>
+                            	<h3 class="hidden-xs">Deixe uma mensagem</h3>
                                 
                                 <form role="form" id="contactForm">
 
                                     <div class="form-group control-group">
                                         <div class="controls">
                                             <p class="help-block"></p>
-                                            <input type="text" class="form-control" placeholder="First Name" id="firstname" data-validation-required-message="Please enter your first name." aria-invalid="false">
+                                            <input type="text" class="form-control" placeholder="Nome" id="nome" data-validation-required-message="Por favor, preencha seu nome" aria-invalid="false">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group control-group">
                                         <div class="controls">
                                             <p class="help-block"></p>
-                                            <input type="text" class="form-control" placeholder="Last Name" id="lastname" data-validation-required-message="Please enter your last name." aria-invalid="false">
+                                            <input type="text" class="form-control" placeholder="Assunto" id="assunto" data-validation-required-message="Por favor, preencha o assunto" aria-invalid="false">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group control-group">
                                         <div class="controls">
                                             <p class="help-block"></p>
-                                            <input type="email" class="form-control" placeholder="Email" id="email" data-validation-required-message="Please enter your email address." aria-invalid="false">
+                                            <input type="email" class="form-control" placeholder="Email" id="email" data-validation-required-message="Por favor informe seu e-mail" aria-invalid="false">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group control-group">
                                         <div class="controls">
                                             <p class="help-block"></p>
-                                            <textarea class="form-control" placeholder="Message" id="message" data-validation-required-message="Please enter some message." aria-invalid="false"></textarea>
+                                            <textarea class="form-control" placeholder="Mensagem" id="mensagem" data-validation-required-message="Por favor informe sua mensagem" aria-invalid="false"></textarea>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Send message</button>
+                                        <button type="submit" class="btn btn-primary">Enviar mensagem</button>
                                     </div>
+
+                                    <div class="contact-alert"></div>
                                 </form>
                                 
                             </div>
                             <div class="col-sm-4">
                             
-                            <img src="{{URL::to('site/image/jonathan.png')}}" class="contact-image image-responsive hidden-xs hidden-sm" alt="" />
+                            <img src="{{url('storage/'.$biografia->avatar)}}" class="contact-image image-responsive hidden-xs hidden-sm" alt="" />
                             	<div class="contact-info">
-                                	<p>John Doe</p>
-                                    <p>795 Folsom Ave, Suite 600</p>
-                                    <p>San Francisco, CA 94107</p>
-                                    <p>123-456-7890</p>
+                                	<p>Carlos W. Gama</p>
+                                    <p>Maceió-AL</p>
                                 </div>
                             </div>
+
                     	</div>
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -673,28 +618,59 @@
     =========================== -->
 @stop
 
+@push('scripts')
+<script>
+    $(function () { 
+        $("input,textarea").jqBootstrapValidation({
+            preventSubmit: true,
+            submitSuccess: function($form, event) {
+                event.preventDefault(); // prevent default submit behaviour
+                // get values from FORM
+                var nome = $("input#nome").val();
+                var assunto = $("input#assunto").val();
+                var email = $("input#email").val();
+                var mensagem = $("textarea#mensagem").val();
+    
+                $.ajax({
+                    url: "{{route('email')}}",
+                    type: "POST",
+                    data: {
+                        nome: nome,
+                        assunto: assunto,
+                        email: email,
+                        mensagem: mensagem
+                    },
+                    cache: false,
+                    success: function() {
+                        // Success message
+                        $('.contact-alert').html("<div class='alert alert-success'>");
+                        $('.contact-alert > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'><i class='fa fa-times'></i></button><strong>Sua mensagem foi enviada com sucesso.</strong></div>");
+                        //clear all fields
+                        $('#contactForm').trigger("reset");
+
+                         $('html, body').animate({
+                            scrollTop: $('.contact-alert').offset().top
+                        }, 1500);
+                    },
+                    error: function() {
+                        // Fail message
+                        $('.contact-alert').html("<div class='alert alert-danger'>");
+                        $('.contact-alert > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'><i class='fa fa-times'></i></button><strong>Desculpe, mas não foi possível enviar a sua mensagem no momento</strong></div>");
+                        //clear all fields
+                        $('#contactForm').trigger("reset");
+
+                        $('html, body').animate({
+                            scrollTop: $('.contact-alert').offset().top
+                        }, 1500);
+                    },
+                })
+            }
+        });
+    });
+</script>
+
+@endpush
+
 @section('footer')
-    <!-- ==========================
-    	FOOTER - START
-    =========================== -->   
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 scrollpoint sp-effect3">
-                
-               			<ul class="brands brands-inline">
-                            <li><a href="#"><i class="fa fa-facebook  hi-icon-effect-8"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>  
-                    
-                    <p>© John Doe The Freelancer 2014 All right reserved. Designed by <a href="http://pixelized.cz" target="_blank" class="btn btn-footer">Pixelized Studio</a></p>
-                </div>   	
-            </div>
-        </div>
-    </section>
-    <!-- ==========================
-    	FOOTER - END 
-    =========================== -->
+    @include('site.shared._footer')
 @stop
