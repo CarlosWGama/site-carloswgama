@@ -11,6 +11,14 @@
 |
 */
 
+if (config('app.debug')) {
+    \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
+
+        Log::debug($query->sql);
+    });
+}
+
+
 //Site
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/servico/{id}', 'HomeController@servico')->name('servico');

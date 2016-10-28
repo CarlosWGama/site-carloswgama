@@ -565,28 +565,28 @@
                                     <div class="form-group control-group">
                                         <div class="controls">
                                             <p class="help-block"></p>
-                                            <input type="text" class="form-control" placeholder="Nome" id="nome" data-validation-required-message="Por favor, preencha seu nome" aria-invalid="false">
+                                            <input type="text" class="form-control" placeholder="Nome" name="nome" id="nome" data-validation-required-message="Por favor, preencha seu nome" aria-invalid="false">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group control-group">
                                         <div class="controls">
                                             <p class="help-block"></p>
-                                            <input type="text" class="form-control" placeholder="Assunto" id="assunto" data-validation-required-message="Por favor, preencha o assunto" aria-invalid="false">
+                                            <input type="text" class="form-control" placeholder="Assunto" name="assunto" id="assunto" data-validation-required-message="Por favor, preencha o assunto" aria-invalid="false">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group control-group">
                                         <div class="controls">
                                             <p class="help-block"></p>
-                                            <input type="email" class="form-control" placeholder="Email" id="email" data-validation-required-message="Por favor informe seu e-mail" aria-invalid="false">
+                                            <input type="email" class="form-control" placeholder="Email" name="email" id="email" data-validation-required-message="Por favor informe seu e-mail" aria-invalid="false">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group control-group">
                                         <div class="controls">
                                             <p class="help-block"></p>
-                                            <textarea class="form-control" placeholder="Mensagem" id="mensagem" data-validation-required-message="Por favor informe sua mensagem" aria-invalid="false"></textarea>
+                                            <textarea class="form-control" placeholder="Mensagem" name="mensagem" id="mensagem" data-validation-required-message="Por favor informe sua mensagem" aria-invalid="false"></textarea>
                                         </div>
                                     </div>
                                     
