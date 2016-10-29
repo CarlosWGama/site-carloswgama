@@ -33,6 +33,6 @@ class Biografia extends Model {
     * @return array[Habilidade]
     */
     public function habilidades() {
-        return $this->hasMany(\App\Models\Habilidade::class);
+        return $this->hasMany(\App\Models\Habilidade::class)->orderBy('porcentagem', 'desc');
     }
 }

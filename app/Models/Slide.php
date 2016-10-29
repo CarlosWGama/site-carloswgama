@@ -18,7 +18,7 @@ class Slide extends Model {
     * @access protected
     * @var array
     */
-    protected $fillable = ['ano', 'descricao'];
+    protected $fillable = ['class_icon', 'descricao'];
 
     /**
     * Controlador de datas usadas no código

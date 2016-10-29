@@ -80,7 +80,7 @@
                 
                 <div class="col-md-7 col-sm-6 scrollpoint sp-effect1"><!-- Profile description --> 
                 	<h3>{{$biografia->titulo}}</h3>
-                  	<p>{{$biografia->descricao}}</p>      
+                  	<p class="justify">{!!nl2br($biografia->descricao)!!}</p>      
                     
                </div><!-- Profile description end--> 
                 
@@ -116,7 +116,7 @@
                 <div class="row"><!-- Toogle my skills start --> 
                     @if (count($biografia->habilidades) > 0)
                         @foreach($biografia->habilidades as $habilidade)
-                        <div class="col-md-{{intval(12/count($biografia->habilidades))}}">
+                        <div class="col-md-3">
                             <div class="chart" data-percent="{{$habilidade->porcentagem}}">{{$habilidade->porcentagem}}% {{$habilidade->habilidade}}</div>
                         </div>
                         @endforeach

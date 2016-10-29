@@ -50,7 +50,7 @@
                       <div id="carousel-reference" class="carousel slide" data-ride="carousel">
                           <!-- Wrapper for slides -->
                           <div class="carousel-inner">
-                              <div class="item active"><img src="{{url('storage/servicos/' . $servico->imagem)}}" alt=""></div>
+                              <div class="item active img-pc"><img src="{{url('storage/servicos/' . $servico->imagem)}}" alt=""></div>
                           </div>
                     
                       </div> 
@@ -60,7 +60,7 @@
              <div class="row">
                  <div class="col-lg-10 col-lg-offset-1">
                      <div class="portfolio-text">
-                         <p>{{$servico->descricao}}</p>
+                         <p>{!!nl2br($servico->descricao)!!}</p>
                      </div>
                  </div>
              </div>

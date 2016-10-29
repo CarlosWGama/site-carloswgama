@@ -14,3 +14,19 @@
 	max-width: 70%;
 	max-height: 70%;
 }
+
+.justify {
+	text-align: justify;
+}
+
+.chart {
+	font-size:11px;
+}
+
+#services {
+	min-height: 200px !important;
+}
+
+.img-pc {
+	max-height: 300px
+}
