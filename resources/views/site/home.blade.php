@@ -116,8 +116,9 @@
                 <div class="row"><!-- Toogle my skills start --> 
                     @if (count($biografia->habilidades) > 0)
                         @foreach($biografia->habilidades as $habilidade)
-                        <div class="col-md-3">
-                            <div class="chart" data-percent="{{$habilidade->porcentagem}}">{{$habilidade->porcentagem}}% {{$habilidade->habilidade}}</div>
+                        <div class="col-md-2">
+                            <div class="alert alert-success text-center" style="padding: 3px 5px 3px 5px"> {{$habilidade->habilidade}}</div>
+                            {{-- <div class="chart" data-percent="{{$habilidade->porcentagem}}">{{$habilidade->porcentagem}}% </div> --}}
                         </div>
                         @endforeach
                     @endif
