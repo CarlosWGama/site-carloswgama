@@ -323,7 +323,10 @@
                         </div>
 						<figcaption>
 							<h3>{{$servico->cliente}}</h3>
-							<a href="{{ route('servico', ['id' => $servico->id]) }}">Ver</a>
+                            <p>{{$servico->descricao}}</p>
+                            @if ($servico->link)
+							<a href="{{$servico->link}}">Ver</a>
+                            @endif
 						</figcaption>
 					</figure>
 				</li>
