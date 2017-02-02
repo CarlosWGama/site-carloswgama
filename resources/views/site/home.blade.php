@@ -326,7 +326,7 @@
 							<h3>{{$servico->cliente}}</h3>
                             <p>{{$servico->descricao}}</p>
                             @if ($servico->link)
-							<a href="{{$servico->link}}">Ver</a>
+							<a href="{{$servico->link}}" target="_blank">Ver</a>
                             @endif
 						</figcaption>
 					</figure>
