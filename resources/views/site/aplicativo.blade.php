@@ -11,7 +11,12 @@
         }
 
         #download img {
-            width: 200px;
+            width:  200px;
+        }
+
+        .description img {
+            margin: 20px;
+            max-height:250px;
         }
     </style>
 
@@ -33,17 +38,7 @@
                     
                     <div class="col-sm-4">    
                     </div>
-                    
 
-                    <div class="col-sm-4 col-xs-6">
-                        
-                        @unless(empty($aplicativo->online))
-                        <div class="blog-header-menu-right">
-                       	    <a href="{{$aplicativo->online}}" target="_blank">Visitar Serviço <i class="fa fa-arrow-right arrow-right"></i></a>
-                        </div>  
-                        @endunless
-
-                    </div>  	
             </div>
 		</div>
     </section>
@@ -83,6 +78,8 @@
                 </div>
                 @endunless
                 <div class="description">
+                        <img src="{{url('storage/aplicativos/'.$aplicativo->imagem)}}" />
+
                     <h3>{{$aplicativo->titulo}}</h3>
                     <h4>{!!nl2br($aplicativo->descricao)!!}</h4>
 
@@ -98,6 +95,8 @@
                         </a>
                         @endunless
                     </div>
+
+                   
                 </div>
                 <div class="clr"></div>
             </div>
