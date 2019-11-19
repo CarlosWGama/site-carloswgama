@@ -22,6 +22,7 @@ if (config('app.debug')) {
 //Site
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/servico/{id}', 'HomeController@servico')->name('servico');
+Route::get('/aplicativo/{id}', 'HomeController@aplicativo')->name('aplicativo');
 Route::post('/email', 'HomeController@email')->name('email');
 
 
@@ -115,8 +116,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::delete('excluir/{id}', 'Admin\ServicosController@excluir')->name('admin.servicos.excluir');
     });
 
+    //Aplicativos
+    Route::group(['prefix' => 'aplicativos'], function() {
+        Route::get('novo', 'Admin\AplicativosController@novo')->name('admin.aplicativos.novo');
+        Route::post('cadastrar', 'Admin\AplicativosController@cadastrar')->name('admin.aplicativos.cadastrar');
+        Route::get('listar', 'Admin\AplicativosController@listar')->name('admin.aplicativos.listar');
+        Route::get('editar/{id}', 'Admin\AplicativosController@editar')->name('admin.aplicativos.editar');
+        Route::put('atualizar/{id}', 'Admin\AplicativosController@atualizar')->name('admin.aplicativos.atualizar');
+        Route::delete('excluir/{id}', 'Admin\AplicativosController@excluir')->name('admin.aplicativos.excluir');
+    });
+
     
-    //Serviço
+    //Testemunhos
     Route::group(['prefix' => 'testemunhos'], function() {
         Route::get('novo', 'Admin\TestemunhosController@novo')->name('admin.testemunhos.novo');
         Route::post('cadastrar', 'Admin\TestemunhosController@cadastrar')->name('admin.testemunhos.cadastrar');

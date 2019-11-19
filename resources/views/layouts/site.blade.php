@@ -45,7 +45,7 @@
     <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   
-
+    @stack('css')
     
     <!-- ==========================
     	JS 

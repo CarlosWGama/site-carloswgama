@@ -11,6 +11,7 @@ use App\Models\Slide;
 use App\Models\Biografia;
 use App\Models\Portfolio;
 use App\Models\Servico;
+use App\Models\Aplicativo;
 use App\Models\Testemunho;
 
 use App\Mail\ContatoMail;
@@ -25,20 +26,26 @@ class HomeController extends Controller {
 			'biografia'		=> Biografia::first(),
 			'portfolios'	=> Portfolio::all(),
 			'servicos'		=> Servico::all(),
+			'aplicativos'	=> Aplicativo::all(),
 			'testemunhos'	=> Testemunho::all()
 		];
     	return view('site.home', $dados);
-    }
-
+	}
+	
     public function servico($id) {
-
     	$dados = [
 			'servico' 		=> Servico::findOrFail($id),
 			'redes_sociais' => Social::all(),
 		];
-    	
     	return view('site.servico', $dados);
-    }
+	}
+	
+	public function aplicativo($id) {
+		return view('site.aplicativo', [
+			'aplicativo' 		=> Aplicativo::findOrFail($id),
+			'redes_sociais' => Social::all(),
+		]);
+	}
 
     public function email(Request $request) {
     	Mail::to('carloswgama@gmail.com')->queue(new ContatoMail(

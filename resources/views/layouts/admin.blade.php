@@ -111,6 +111,15 @@
                                 </ul>
                             </li>
 
+                            <!-- Aplicativo -->
+                            <li>
+                                <a><i class="fa fa-mobile"></i> Aplicativo <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: none">
+                                    <li><a href="{{route('admin.aplicativos.novo')}}">Novo</a></li>
+                                    <li><a href="{{route('admin.aplicativos.listar')}}">Listar</a></li>
+                                </ul>
+                            </li>
+
                             <!-- Testemunho -->
                             <li>
                                 <a><i class="fa fa-comments-o"></i> Testemunhos <span class="fa fa-chevron-down"></span></a>
