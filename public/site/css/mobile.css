@@ -91,8 +91,8 @@ body {
   .dark .buttons, .dark .button.last {background-color:#333;box-shadow:-25px 0 0 rgba(0,0,0,0.075), 0 0 0 2px rgba(0,0,0,0.6);}
   
   /* Phone Color Styles - White */
-  .phone-shape {width: 370px;height: 600px;border-radius: 40px;border: 2px solid #fff;margin:0 auto;padding: 60px 10px;background-color: #e7e7e7;position: relative;box-shadow:-27px 0 0 rgba(0,0,0,0.075), 0 0 0 2px rgba(0,0,0,0.1)}
-  .phone-screen {height: 470px;width: 340px;background-color: #fff;box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;overflow: hidden;position: relative;}
+  .phone-shape {width: 455px;height: 850px;border-radius: 40px;border: 2px solid #fff;margin:0 auto;padding: 60px 10px;background-color: #e7e7e7;position: relative;box-shadow:-27px 0 0 rgba(0,0,0,0.075), 0 0 0 2px rgba(0,0,0,0.1)}
+  .phone-screen {height: 700px;width: 430px;background-color: #fff;box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;overflow: hidden;position: relative;}
   .top-details {position: absolute;left: 0;top: 17px;width: 100%;}
   .camera, .circle, .speaker {border-radius: 100px;display: block;background-color: #e1e1e1;}
   .camera {height: 7px;width: 7px;margin: auto;}
