@@ -114,6 +114,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::get('editar/{id}', 'Admin\ServicosController@editar')->name('admin.servicos.editar');
         Route::put('atualizar/{id}', 'Admin\ServicosController@atualizar')->name('admin.servicos.atualizar');
         Route::delete('excluir/{id}', 'Admin\ServicosController@excluir')->name('admin.servicos.excluir');
+        Route::get('fotos/{id}', 'Admin\ServicosController@fotos')->name('admin.servicos.fotos');
+        Route::post('fotos/{id}/cadastrar', 'Admin\ServicosController@fotosCadastrar')->name('admin.servicos.fotos.cadastrar');
+        Route::delete('fotos/{id}/excluir/{fotoID}', 'Admin\ServicosController@fotosExcluir')->name('admin.servicos.fotos.excluir');
     });
 
     //Aplicativos

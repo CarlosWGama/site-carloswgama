@@ -30,6 +30,14 @@
     <link href="{{url('admin/css/alert/jquery-confirm.css')}}" rel="stylesheet" type="text/css" />
     <script src="{{url('admin/js/alert/jquery-confirm.js')}}"></script>
 @endif
+
+@if(isset($fileupload))
+<link rel="stylesheet" href="{{asset('admin/js/fileupload/fileupload.css')}}">
+<script src="{{asset('admin/js/fileupload/fileupload.js')}}"></script>
+@endif
+
+@stack('css')
+
 </head>
 
 

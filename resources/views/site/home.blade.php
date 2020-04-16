@@ -323,8 +323,8 @@
                             <img src="{{URL::to('storage/servicos/' . $servico->imagem)}}" alt="{{$servico->cliente}}">
                         </div>
 						<figcaption>
-							<h3>{{$servico->cliente}}</h3>
-                            <p>{{$servico->descricao}}</p>
+							<h3>{{$servico->titulo}}</h3>
+                            <p>{{$servico->resumo}}</p>
                             @if ($servico->link)
 							<a href="{{$servico->link}}" target="_blank">Ver</a>
                             @endif

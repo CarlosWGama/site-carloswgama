@@ -20,11 +20,11 @@
             
                 <!-- Cliente -->
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Cliente:</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Título:</label>
         
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="cliente" value="{{old('cliente', $servico->cliente)}}">
+                            <input type="text" class="form-control" name="titulo" value="{{old('titulo', $servico->titulo)}}">
                         </div>
                     </div>
                 </div>
@@ -40,6 +40,53 @@
                     </div>
                 </div>
 
+                
+                <!-- Link -->
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Resumo:</label>
+        
+                    <div class="col-md-6 col-sm-6 col-xs-6s">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="resumo" value="{{old('resumo', $servico->resumo)}}">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANDROID -->
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Play Store:</label>
+        
+                    <div class="col-md-6 col-sm-6 col-xs-6s">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="android" value="{{old('android', $servico->android)}}">
+                        </div>
+                    </div>
+                </div>
+
+                                
+                <!-- IOS -->
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Apple Store:</label>
+        
+                    <div class="col-md-6 col-sm-6 col-xs-6s">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="ios" value="{{old('ios', $servico->ios)}}">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Link -->
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Github:</label>
+        
+                    <div class="col-md-6 col-sm-6 col-xs-6s">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="github" value="{{old('github', $servico->github)}}">
+                        </div>
+                    </div>
+                </div>
+
                  <!-- Descrição -->
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Descrição:</label>
@@ -48,6 +95,17 @@
                         <textarea class="form-control" name="descricao"> {{old('descricao', $servico->descricao)}}</textarea>
                     </div>
                 </div>
+
+                
+                 <!-- Link externo -->
+                 <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Link externo:</label>
+        
+                    <div class="col-md-6 col-sm-6 col-xs-12s">
+                        <input type="text" class="form-control" name="externo" value="{{old('externo', $servico->externo)}}">
+                    </div>
+                </div>
+
 
                
                 <!-- Imagem -->

@@ -11,6 +11,7 @@ use App\Models\Slide;
 use App\Models\Biografia;
 use App\Models\Portfolio;
 use App\Models\Servico;
+use App\Models\ServicosFotos;
 use App\Models\Aplicativo;
 use App\Models\Testemunho;
 
@@ -34,7 +35,7 @@ class HomeController extends Controller {
 	
     public function servico($id) {
     	$dados = [
-			'servico' 		=> Servico::findOrFail($id),
+			'servico' 		=> Servico::with('fotos')->findOrFail($id),
 			'redes_sociais' => Social::all(),
 		];
     	return view('site.servico', $dados);
