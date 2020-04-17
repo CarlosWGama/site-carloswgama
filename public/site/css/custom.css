@@ -824,6 +824,7 @@ blockquote footer {
 	max-width: 100%;
 	display: block;
 	position: relative;
+	border-radius: 10px;
 }
 
 .grid figcaption {

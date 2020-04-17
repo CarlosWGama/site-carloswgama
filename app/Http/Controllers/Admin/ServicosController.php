@@ -32,7 +32,8 @@ class ServicosController extends AdminController {
         $this->saveImagem($request, $servico);
         $servico->save();
 
-        return redirect()->route('admin.servicos.listar')->with('sucesso', 'Serviço de "' . $servico->titulo . '" criado com sucesso');
+        return redirect()->route('admin.servicos.fotos', ['id' => $servico->id])->with('sucesso', 'Serviço de "' . $servico->titulo . '" criado com sucesso');
+
     }
 
     /**

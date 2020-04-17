@@ -21,6 +21,7 @@
         .description img {
             margin: 20px;
             max-height:250px;
+            border-radius: 20px;
         }
         #fotos {
             width: 50%;
@@ -30,7 +31,7 @@
             /* border: 1px solid black; */
         }
 
-        #fotos img { width: 175px; margin: 5px;}
+        #fotos img { width: 175px; margin: 5px; border-radius: 10px;}
         #fotos img:hover { opacity: 0.3}
 
         .link-externo {
@@ -147,7 +148,7 @@
 @endsection
 
 @push('scripts')
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+{{-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> --}}
 @endpush
 
 @section('footer')
