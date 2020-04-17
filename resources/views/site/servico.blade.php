@@ -32,6 +32,17 @@
 
         #fotos img { width: 175px; margin: 5px;}
         #fotos img:hover { opacity: 0.3}
+
+        .link-externo {
+            border:1px white solid;
+            border-radius: 10px;
+            width: 200px;
+            padding: 20px 0px;
+            color: black;
+            background:white;
+        }
+
+        .link-externo:hover { background-color: rgba(255, 255, 255, 0.3); color: black; }
     </style>
 
 @endpush
@@ -113,6 +124,12 @@
                     <img src="{{url('site/image/github.png')}}"  style="border-radius: 10px;"/>
                 </a>
                 @endunless
+                @unless(empty($servico->externo))
+                <a href="{{$servico->externo}}" target="_blank" class="link-externo">
+                    IR PARA O CONTEÚDO<br/>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                @endunless
             </div>
 
             <div class="clr"></div>
@@ -130,7 +147,7 @@
 @endsection
 
 @push('scripts')
-
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 @endpush
 
 @section('footer')
