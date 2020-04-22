@@ -32,7 +32,7 @@
         }
 
         #fotos img { width: 175px; margin: 5px; border-radius: 10px;}
-        #fotos img:hover { opacity: 0.3}
+        #fotos img:hover { opacity: 0.3; cursor: pointer}
 
         .link-externo {
             border:1px white solid;
@@ -44,6 +44,11 @@
         }
 
         .link-externo:hover { background-color: rgba(255, 255, 255, 0.3); color: black; }
+
+
+        #popup { position: fixed; display: none; height: 100%; width: 100%; top: 0; cursor: pointer}
+        #item-popup { display: flex; height: 100%; flex: 1; background-color: rgba(0, 0, 0, 0.5  ); justify-content: center; align-items: center;}
+        #img-pop { max-height: 95%}
     </style>
 
 @endpush
@@ -71,6 +76,14 @@
 @endsection
 
 @section('conteudo_principal')
+
+       <!-- POP UP -->
+       <div id="popup">
+        <div id="item-popup">
+            <img id="img-pop" src=""/>
+        </div>
+    </div> 
+
      <!-- ==========================
     	SERVICO  - START 
     =========================== -->
@@ -96,9 +109,7 @@
 
                 <div id="fotos">
                     @foreach ($servico->fotos as $foto)
-                    <a href="{{asset('storage/servicos_fotos/'.$foto->arquivo)}}" target="_blank">
-                    <img src="{{asset('storage/servicos_fotos/'.$foto->arquivo)}}" />
-                    </a>
+                    <img class="show-pop" src="{{asset('storage/servicos_fotos/'.$foto->arquivo)}}" data-img="{{asset('storage/servicos_fotos/'.$foto->arquivo)}}" />
                     @endforeach
                 </div>
             </div>
@@ -145,10 +156,27 @@
              
          </div>
     </section>
+
+
+ 
+
+    
 @endsection
 
 @push('scripts')
 {{-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> --}}
+
+
+<script type="text/javascript">
+    $('#popup').click(() => {
+        $('#popup').hide('slow');
+    })
+
+    $('.show-pop').click(function() {
+        $('#img-pop').attr('src', $(this).attr('src'))
+        $('#popup').show('slow');
+    })
+</script>   
 @endpush
 
 @section('footer')
