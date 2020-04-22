@@ -139,7 +139,7 @@
                 @unless(empty($servico->externo))
                 <a href="{{$servico->externo}}" target="_blank" class="link-externo">
                     IR PARA O CONTEÚDO<br/>
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fa fa-arrow-right"></i>
                 </a>
                 @endunless
             </div>
@@ -164,8 +164,6 @@
 @endsection
 
 @push('scripts')
-{{-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> --}}
-
 
 <script type="text/javascript">
     $('#popup').click(() => {
