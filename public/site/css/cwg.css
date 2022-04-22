@@ -1,0 +1,32 @@
+.img-portfolio {
+	height: 200px;
+}
+
+.servicos-logo {
+	width: 400px;
+	height: 300px;
+	background-image: url('../image/background-servico.jpg') !important;
+}
+
+.servicos-logo img {
+	left:25%;
+	top:10%;
+	max-width: 70%;
+	max-height: 70%;
+}
+
+.justify {
+	text-align: justify;
+}
+
+.chart {
+	font-size:11px;
+}
+
+#services {
+	min-height: 200px !important;
+}
+
+.img-pc {
+	max-height: 300px
+}
