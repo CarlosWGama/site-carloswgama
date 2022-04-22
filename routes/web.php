@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\AnosController;
+use App\Http\Controllers\Admin\AplicativosController;
 use App\Http\Controllers\Admin\BiografiaController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\HabilidadesController;
 use App\Http\Controllers\Admin\PortfoliosController;
 use App\Http\Controllers\Admin\ServicosController;
 use App\Http\Controllers\Admin\SlideController;
@@ -124,7 +126,7 @@ Route::middleware('admin')
                 });
 
                 //Habilidades
-                Route::controller(AnosController::class)
+                Route::controller(HabilidadesController::class)
                 ->prefix('habilidades')
                 ->name('habilidades.')
                 ->group(function() {
@@ -160,7 +162,7 @@ Route::middleware('admin')
                 Route::get('listar', 'listar')->name('listar');
                 Route::get('editar/{id}', 'editar')->name('editar');
                 Route::put('atualizar/{id}', 'atualizar')->name('atualizar');
-                Route::delete('excluir/{id}', 'excluir')->name('.excluir');
+                Route::delete('excluir/{id}', 'excluir')->name('excluir');
                 Route::get('fotos/{id}', 'fotos')->name('fotos');
                 Route::post('fotos/{id}/cadastrar', 'fotosCadastrar')->name('fotos.cadastrar');
                 Route::delete('fotos/{id}/excluir/{fotoID}', 'fotosExcluir')->name('fotos.excluir');
